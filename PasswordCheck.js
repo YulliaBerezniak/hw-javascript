@@ -23,5 +23,4 @@ function PasswordCheck(Password)  {
       return "Weak";
     }
   }
-PasswordCheck(YPassword123);
-  
+  PasswordCheck (YPassword123);
