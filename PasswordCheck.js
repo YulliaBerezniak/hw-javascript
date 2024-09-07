@@ -17,13 +17,11 @@ function PasswordCheck(Password)  {
         break;
       }
     }
-    if (password.length >= 8 && haslowerCase && hasupperCase && hasDigit) {
+    if (Password.length >= 8 && haslowerCase && hasupperCase && hasDigit) {
       return "Strong";
     } else {
       return "Weak";
     }
   }
-
-PasswordCheck(Yuliia1234)
-
+PasswordCheck(YPassword123);
   
