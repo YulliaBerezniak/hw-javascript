@@ -6,7 +6,7 @@ class Book {
 constructor(title, author) {
     this.#title = title;
     this.#author = author;
-    this.#isAvailable = true;
+    this.#isAvailable = True;
 }
 getTitle() {
     return this.#title;
@@ -19,7 +19,7 @@ isAvailable() {
 }
 checkoutBook() {
     if (this.#isAvailable) {
-        this.#isAvailable = false;
+        this.#isAvailable = False;
         console.log(`Ви взяли книгу "${this.#title}" автора ${this.#author}.`);
     } 
     else {
@@ -38,13 +38,14 @@ class Library {
         if (book && book.isAvailable()) {
             book.checkoutBook();
         }
-        else if {
+        else if (!book.isAvailable()) {
             console.log(`Вибачте "${title}" недоступна.`);
         }
-        else {
-            console.log('Книга "${title}" не знайдена в бібліотеці.');
+        else if (!book)
+            console.log(`Книга "${title}" не знайдена в бібліотеці.`);
+            }
         }
-    }
+
     viewAvailableBooks() {
         console.log("Достпні книги:");
         this.books.forEach((book) => {
@@ -53,7 +54,6 @@ class Library {
             }
         });
     }
-}
 
 const myLibrary = new Library();
 const book1 = new Book("Цирцея", "Мадлер Міллер");
