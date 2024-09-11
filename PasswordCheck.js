@@ -7,10 +7,10 @@ function PasswordCheck(Password)  {
       if (char >= '0' && char <= '9') {
         hasDigit = true;
       } 
-      else if (char === char.tolowerCase() && char !== char.toupperCase()) {
+      else if (char === char.toLowerCase() && char !== char.toUpperCase()) {
         haslowerCase = true;
       } 
-      else if (char === char.toupperCase() && char !== char.tolowerCase()) {
+      else if (char === char.toUpperCase() && char !== char.toLowerCase()) {
         hasupperCase = true;
       }
       if (haslowerCase && hasupperCase && hasDigit) {
@@ -23,4 +23,4 @@ function PasswordCheck(Password)  {
       return "Weak";
     }
   }
-  PasswordCheck (YPassword123);
+  PasswordCheck("YPassword123");
