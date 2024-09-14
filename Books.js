@@ -48,11 +48,7 @@ class Library {
 
     viewAvailableBooks() {
         console.log("Достпні книги:");
-        this.books.forEach((book) => {
-            if (book.isAvailable()) {
-                console.log(`- "${book.getTitle()}"  автора ${book.getAuthor()}`);
-            }
-        });
+        this.books.forEach(book);
     }
 
 const myLibrary = new Library();
