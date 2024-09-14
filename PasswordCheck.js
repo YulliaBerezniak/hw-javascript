@@ -23,4 +23,6 @@ function PasswordCheck(Password)  {
       return "Weak";
     }
   }
-  PasswordCheck("YPassword123");
+  
+  const result = PasswordCheck("YPassword123");
+  console.log(result);
