@@ -6,7 +6,7 @@ class Book {
 constructor(title, author) {
     this.#title = title;
     this.#author = author;
-    this.#isAvailable = True;
+    this.#isAvailable = true;
 }
 getTitle() {
     return this.#title;
@@ -19,12 +19,12 @@ isAvailable() {
 }
 checkoutBook() {
     if (this.#isAvailable) {
-        this.#isAvailable = False;
-        console.log(`Ви взяли книгу "${this.#title}" автора ${this.#author}.`);
-    } 
+        this.#isAvailable = false;
+            console.log(`Ви взяли книгу "${this.#title}" автора ${this.#author}.`);
+        } 
     else {
-        console.log(`Вибачте "${this.#title}" недоступна.`);
-    }
+        console.log(`Вибачте, книга "${this.#title}" недоступна.`);
+        }
 }
 }
 
@@ -35,21 +35,25 @@ class Library {
     }
     checkoutBook(title) {
         const book = this.books.find((b) => b.getTitle() === title);
-        if (book && book.isAvailable()) {
+            if (book && book.isAvailable()) {
             book.checkoutBook();
-        }
-        else if (!book.isAvailable()) {
-            console.log(`Вибачте "${title}" недоступна.`);
-        }
-        else if (!book)
-            console.log(`Книга "${title}" не знайдена в бібліотеці.`);
+            } 
+            else if (book && !book.isAvailable()) {
+                console.log(`Вибачте, книга "${title}" недоступна.`);
+            } 
+            else {
+                console.log(`Книга "${title}" не знайдена в бібліотеці.`);
             }
-        }
-
-    viewAvailableBooks() {
-        console.log("Достпні книги:");
-        this.books.forEach(book);
     }
+    
+            viewAvailableBooks() {
+        this.books.forEach((book) => {
+            if (book.isAvailable()) {
+                console.log(`Книга "${book.getTitle()}" Автора ${book.getAuthor()} доступна.`);
+        }
+        });
+    }
+}
 
 const myLibrary = new Library();
 const book1 = new Book("Цирцея", "Мадлер Міллер");
@@ -65,4 +69,5 @@ myLibrary.addBook(book4);
 myLibrary.viewAvailableBooks();
 myLibrary.checkoutBook("Полон");
 myLibrary.viewAvailableBooks();
-myLibrary.checkoutBook("Полон");
+myLibrary.checkoutBook("Кайдашева сім'я");
+myLibrary.viewAvailableBooks();
